@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Read(//c/Users/PC/.bun/bin//**)",
+      "Bash(/c/Users/PC/.bun/bin/bun --version)",
+      "Bash(export PATH=\"/c/Users/PC/.bun/bin:$PATH\")",
+      "Bash(bun create:*)",
+      "Bash(export BUN=/c/Users/PC/.bun/bin/bun)",
+      "Bash($BUN init:*)",
+      "Bash($BUN add:*)",
+      "Bash(bun run:*)",
+      "Bash(bun add:*)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i -e 's/fontSize: \"\"32px\"\"/fontSize: \"\"48px\"\"/g' -e 's/fontSize: \"\"24px\"\"/fontSize: \"\"36px\"\"/g' -e 's/fontSize: \"\"22px\"\"/fontSize: \"\"33px\"\"/g' -e 's/fontSize: \"\"20px\"\"/fontSize: \"\"30px\"\"/g' -e 's/fontSize: \"\"18px\"\"/fontSize: \"\"27px\"\"/g' -e 's/fontSize: \"\"16px\"\"/fontSize: \"\"24px\"\"/g' -e 's/fontSize: \"\"15px\"\"/fontSize: \"\"23px\"\"/g' -e 's/fontSize: \"\"14px\"\"/fontSize: \"\"21px\"\"/g' -e 's/fontSize: \"\"13px\"\"/fontSize: \"\"20px\"\"/g' -e 's/fontSize: \"\"12px\"\"/fontSize: \"\"18px\"\"/g' -e 's/fontSize: \"\"11px\"\"/fontSize: \"\"17px\"\"/g' -e 's/fontSize: \"\"10px\"\"/fontSize: \"\"15px\"\"/g' -e 's/fontSize: \"\"9px\"\"/fontSize: \"\"14px\"\"/g' \"$f\")",
+      "Bash(done)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\PC\\android-detector\\src"
+    ]
+  }
+}
