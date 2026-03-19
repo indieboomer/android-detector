@@ -21,6 +21,7 @@ export type Question = {
   category: "empathy" | "memory" | "identity" | "fear" | "ethics" | "contradiction";
   targets: string[];
   stressImpact: number;
+  days: number[];
 };
 
 export type ReactionResult = {

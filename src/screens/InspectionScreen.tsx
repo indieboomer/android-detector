@@ -32,9 +32,9 @@ export function InspectionScreen() {
   const askedCount = currentCase?.askedQuestionIds.length ?? 0;
   const canVerdict = askedCount >= minQuestions;
 
-  // Available (unasked) questions
+  // Available (unasked) questions for today's day
   const available = questions.filter(
-    (q) => !currentCase?.askedQuestionIds.includes(q.id)
+    (q) => q.days.includes(currentDay) && !currentCase?.askedQuestionIds.includes(q.id)
   );
 
   const pageStart = questionPage * QUESTION_PAGE_SIZE;

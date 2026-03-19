@@ -70,12 +70,10 @@ function generateReaction(subject: Subject, questionId: string, callCount: numbe
     }
   }
 
-  // Pick response text
-  const responsePool = subjectResponses[subject.id]?.[question.category] ?? [];
-  const responseIdx = Math.floor(rand() * responsePool.length);
+  // Pick response text — keyed by questionId so each answer fits the specific question
   const responseText =
-    responsePool[responseIdx] ??
-    `I... I'm not sure how to answer that. [No response data for ${subject.id}/${question.category}]`;
+    subjectResponses[subject.id]?.[questionId] ??
+    `I... I'm not sure how to answer that.`;
 
   return {
     questionId,

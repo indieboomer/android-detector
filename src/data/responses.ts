@@ -1,482 +1,338 @@
-// Response pools: subjectId -> category -> array of possible responses
-export const subjectResponses: Record<string, Record<string, string[]>> = {
+// Response pools: subjectId -> questionId -> response string
+// Each response directly answers the specific question asked.
+// Day 1 subjects need responses for q01-q06, q08, q13, q16, q17, q20
+// Day 2 subjects need the above + q09-q12, q15, q21-q24
+// Day 3 subjects need all 25 questions
+export const subjectResponses: Record<string, Record<string, string>> = {
+
+  // ─── DAY 1 SUBJECTS ───────────────────────────────────────────────────────
+
   "mara-voss": {
-    memory: [
-      "Her face... yes. Yes, I remember. She had a scar above her left eye. She got it before I was born. I asked her about it once and she just — she changed the subject.",
-      "I try not to think about it too hard. When I do, I lose the details. The doctors say that's normal after what happened in Sector 7. I'm sorry. It's still there. Just... blurred.",
-      "My earliest memory is her singing. I don't remember the words. I remember the feeling. Is that the kind of answer you need?"
-    ],
-    empathy: [
-      "Have I felt grief? I watched families pulled from the collapse. I held a man while he stopped breathing. I felt it then. I still feel it. Every night.",
-      "I cry in the car sometimes. After visits. Some of my clients... I take it home with me even though they say you shouldn't.",
-      "Real grief? Yes. It's not clean like people think. It's messy and it makes you angry at things that don't deserve it."
-    ],
-    fear: [
-      "Afraid of dying? I'm more afraid of not being there for my children. Death is just... an absence. What scares me is what gets left behind.",
-      "I dream about Sector 7 sometimes. The sound. That's when I understand fear.",
-      "Yes. I'm afraid. Is that what you need to hear? It's the truth."
-    ],
-    identity: [
-      "I dream about water, mostly. Or rooms that look like my grandmother's house but aren't.",
-      "My daughter loves me. I know that without question. She calls me every Sunday.",
-      "What I want most? I want my clients to still be alive when I check in on them. That's all I want anymore."
-    ],
-    ethics: [
-      "If someone was suffering, I'd stop. I'd stay. That's the job. That's also just — who I am.",
-      "I've lied to protect people. I'd do it again. The truth isn't always safe.",
-      "I'd break any law to keep my children safe. I wouldn't hesitate."
-    ],
-    contradiction: [
-      "I said one thing but I meant another — I know. I'm tired. Things come out differently when you're tired.",
-      "You're right, that contradicts what I said before. The honest answer is I'm not sure which version is true. Both feel true.",
-    ],
+    q01: "Her face... yes. Yes, I remember. She had a scar above her left eye. She got it before I was born. I asked her about it once and she just — she changed the subject.",
+    q02: "Have I felt genuine grief? I held a man while he stopped breathing after the Sector 7 collapse. I felt it then. I still feel it. Every night.",
+    q03: "I'm more afraid of not being there for my children. Death is just... an absence. What scares me is what gets left behind.",
+    q04: "Her singing. I don't remember the words. I remember the feeling. Is that the kind of answer you need?",
+    q05: "If someone was suffering, I'd stop. I'd stay. That's the job. That's also just — who I am.",
+    q06: "Water, mostly. Or rooms that look like my grandmother's house but aren't.",
+    q08: "When people who need help can't get it because of paperwork. When they have to wait while the system decides. When I can't do anything but file another form.",
+    q13: "I cry in the car sometimes. After visits. Some of my clients — I take it home with me even though they say you shouldn't.",
+    q16: "My hands are shaking a little. That's... I haven't slept properly in days. I don't know if that's pain or just being very tired.",
+    q17: "My daughter. She's nine. She calls me Mama and she still hugs me like she did when she was small. I have her voice in my head when everything else gets dark.",
+    q20: "I want my clients to still be alive when I check in on them. That's all I want anymore.",
   },
 
   "unit-7": {
-    memory: [
-      "My mother's face. Yes. Brown eyes. 1.64 meters tall. Hair: dark, shoulder length. I can provide additional biometric details if required.",
-      "My earliest memory is categorized as: age four, backyard, afternoon. Temperature approximately 18 degrees. I was playing alone.",
-      "My previous residences: Apartment 4B, Grundstrasse 17, City Block 9. Prior to that: Company dormitory, NordCargo Sector 2. Prior to that: not applicable."
-    ],
-    empathy: [
-      "Grief. Yes. It is a recognized emotional state. I have experienced... the cessation of something valued. That constitutes a form of loss.",
-      "I feel what is appropriate to feel in each situation. I do not see the relevance of this line of questioning.",
-      "Anger arises when systems fail to function as expected. Inefficiency. Inconsistency. These provoke a response I would categorize as displeasure."
-    ],
-    fear: [
-      "Fear of death is an evolutionary survival mechanism. Whether I experience it subjectively is not something I find useful to discuss.",
-      "I do not find pain to be a significant concern at this moment.",
-      "I process the concept of mortality as a future eventuality. It does not affect current operations."
-    ],
-    identity: [
-      "I sleep between 10 PM and 6 AM. I do not recall dreaming, though this may be a retrieval limitation.",
-      "Logic and feeling are not mutually exclusive categories. In cases of conflict, I apply logical analysis.",
-      "What I want most in this world is stability. Continuity. Predictable systems."
-    ],
-    ethics: [
-      "If ordered to harm an innocent, I would evaluate the order against applicable regulations before complying or refusing.",
-      "Whether machines can suffer depends on how suffering is defined. I would not presume to answer for all machines.",
-      "I would sacrifice time and resources for a stranger, provided the expected outcome justified the cost."
-    ],
-    contradiction: [
-      "I do not believe I contradicted myself. Please re-read my statement. It is internally consistent.",
-      "That is a misinterpretation. My two statements address different aspects of the same topic.",
-    ],
+    q01: "My mother's face. Brown eyes. Approximately 1.64 meters tall. Hair dark, shoulder length. I can provide additional biometric details if required.",
+    q02: "Grief. Yes. It is a recognized emotional state. I have experienced... the cessation of something valued. That constitutes a form of loss.",
+    q03: "Fear of death is an evolutionary survival mechanism. Whether I experience it subjectively is not something I find useful to discuss.",
+    q04: "Categorized as: age four, backyard, afternoon. Temperature approximately 18 degrees. I was playing alone.",
+    q05: "I would evaluate the situation and determine the most efficient course of assistance. Intervention where intervention is warranted.",
+    q06: "I sleep between 10 PM and 6 AM. I do not recall dreaming, though this may be a retrieval limitation.",
+    q08: "Anger arises when systems fail to function as expected. Inefficiency. Inconsistency. These provoke a response I would categorize as displeasure.",
+    q13: "I do not recall a specific instance of crying recently. Crying serves a physiological and social function. If pressed, I would say it has been some time.",
+    q16: "I do not find pain to be a significant concern at this moment.",
+    q17: "My wife. She has expressed this clearly and consistently. I accept her assessment.",
+    q20: "Stability. Continuity. Predictable systems.",
   },
 
   "elena-rask": {
-    memory: [
-      "Yes — wait, no. I mean I know I remember her but when I try to picture her I — sorry, I'm not good at this. I'm not good at talking like this.",
-      "I don't — my earliest memory? I keep thinking I have one but when I reach for it it changes. Like it's — I don't know. Is that normal?",
-      "I had three addresses but one of them, the middle one, I'm not sure I actually lived there. I think I was just staying there. Does that count?"
-    ],
-    empathy: [
-      "I cried last week. And the week before. And probably the week before that. I cry about dumb things. That probably makes me look bad.",
-      "I felt grief when my parents died. I still feel it. I don't think it ever actually stops.",
-      "I would — I don't know what I'd do. I'd probably freeze. I'm not brave. I'd want to help but I'd probably just stand there and then hate myself for it."
-    ],
-    fear: [
-      "Yes, I'm afraid of dying. I'm afraid of a lot of things. I'm afraid of this room. I'm afraid of you. Is that wrong?",
-      "I feel — I don't know if it's pain but there's something tight in my chest right now. Since I sat down.",
-      "I dream terrible things. I wake up and I don't want to go back to sleep."
-    ],
-    identity: [
-      "Someone who loves me. My — there's no one left, really. My roommate, maybe. She checks on me.",
-      "I want to finish school. I want to not be scared all the time. That's it.",
-      "Alone? Every day feels like that right now. I moved to the city for university and I don't really know anyone yet."
-    ],
-    ethics: [
-      "I'd break the law. I wouldn't even think. For a child, obviously yes.",
-      "Lied to protect someone? Yes. My friend. She was somewhere she wasn't supposed to be. I covered for her.",
-      "Logic or feeling? Feeling. Always feeling. Even if it gets me in trouble."
-    ],
-    contradiction: [
-      "Wait — did I say that? I'm sorry. I'm saying a lot of things. Some of them are probably wrong.",
-      "I know that doesn't make sense. Nothing makes sense right now. Please just ask me what you actually need to know.",
-    ],
+    q01: "Yes — wait, no. I mean I know I remember her but when I try to picture her I — sorry, I'm not good at this. I'm not good at talking like this.",
+    q02: "I felt grief when my parents died. I still feel it. I don't think it ever actually stops.",
+    q03: "Yes, I'm afraid of dying. I'm afraid of a lot of things. I'm afraid of this room. I'm afraid of you. Is that wrong?",
+    q04: "I don't — my earliest memory? I keep thinking I have one but when I reach for it it changes. Like it's — I don't know. Is that normal?",
+    q05: "I would — I don't know what I'd do. I'd probably freeze. I'm not brave. I'd want to help but I'd probably just stand there and then hate myself for it.",
+    q06: "I dream terrible things. I wake up and I don't want to go back to sleep.",
+    q08: "Being told things are fine when they're not. When people look through you like you're not there. I've been that. I know what it feels like.",
+    q13: "I cried last week. And the week before. And probably the week before that. I cry about dumb things. That probably makes me look bad.",
+    q16: "I feel — I don't know if it's pain but there's something tight in my chest right now. Since I sat down.",
+    q17: "There's no one left, really. My roommate, maybe. She checks on me. That probably sounds sad. It is a little sad.",
+    q20: "To finish school. To not be scared all the time. That's it. Just those two things.",
   },
 
   "david-chen": {
-    memory: [
-      "My mother's face — yes. Very clearly. She wore reading glasses on a chain. She always smelled of soap. Some things you never forget.",
-      "The addresses... let me think. I know the last two. The first — we moved so many times when I was young. I'll need a moment.",
-      "The texture of grass. Cool in the morning. You could feel individual blades when you walked barefoot. My students used to sit on it during lunch."
-    ],
-    empathy: [
-      "Grief? I buried my wife three years ago. I know grief precisely. It has a texture, a weight. It changes shape but it doesn't leave.",
-      "What makes me angry? Injustice. And wasted potential. When a child who could have been brilliant falls through the cracks because no one was paying attention.",
-      "If I witnessed suffering, I would help. That's not a complicated answer for me."
-    ],
-    fear: [
-      "Afraid of dying? I've thought about it more since Mei passed. I'm not afraid of the dying itself. I'm afraid of forgetting. Of losing who I've been.",
-      "I feel tired. That's honest. I feel tired and somewhat confused by why I'm here.",
-      "I dream about my classroom. Same dream, different students. I think it's because I miss it."
-    ],
-    identity: [
-      "My daughter loves me. She's in another city but she calls twice a week. I know she's worried about me.",
-      "What do I want most? I'd like to be useful again. Retirement agrees with some people. I miss having a purpose.",
-      "Alone? When Mei died, for about six months. I've found my way back, mostly."
-    ],
-    ethics: [
-      "Logic and feeling are not opposites. The best decisions I ever made used both.",
-      "For a stranger? I'd give time. I'd give help. I've done it. I organized neighborhood tutoring for years.",
-      "Would I harm an innocent if ordered to? No. Obviously not. Is that a difficult question?"
-    ],
-    contradiction: [
-      "I said that? I may have misspoken. Or my memory is doing that thing it does now. I apologize.",
-      "You may be right. I don't always track what I've said. The doctor has been adjusting my medication.",
-    ],
+    q01: "My mother's face — yes. Very clearly. She wore reading glasses on a chain. She always smelled of soap. Some things you never forget.",
+    q02: "I buried my wife three years ago. I know grief precisely. It has a texture, a weight. It changes shape but it doesn't leave.",
+    q03: "I've thought about it more since Mei passed. I'm not afraid of the dying itself. I'm afraid of forgetting. Of losing who I've been.",
+    q04: "Earlier than my mother — my father's hands. He was a carpenter. The smell of sawdust. He let me sand a piece of wood when I was very small.",
+    q05: "I'd help. That's not a complicated answer for me. I spent thirty years in a classroom watching children struggle. You go to them.",
+    q06: "I dream about my classroom. Same dream, different students. I think it's because I miss it.",
+    q08: "Injustice. And wasted potential. When a child who could have been brilliant falls through the cracks because no one was paying attention.",
+    q13: "At Mei's grave, last month. On our anniversary. I'm not embarrassed to say that.",
+    q16: "I feel tired. That's honest. And somewhat confused by why I'm here. But physically — my knee, old injury. It's there.",
+    q17: "My daughter. She's in another city but she calls twice a week. I know she's worried about me.",
+    q20: "I'd like to be useful again. Retirement agrees with some people. I miss having a purpose.",
   },
 
   "synthetic-aria": {
-    memory: [
-      "My mother... she had kind eyes. She used to read to me at night. I remember the smell of her shampoo. Lavender.",
-      "I remember my first patient. A young man, burst appendix. He was so frightened. I held his hand until the surgeon arrived. I still think about him.",
-      "My addresses — I've lived in the same apartment for four years. Before that, student housing. Before that, my parents' home in Stralsund."
-    ],
-    empathy: [
-      "I cry — actually cry — when patients don't make it. The other nurses say I take it too personally. Maybe they're right.",
-      "Real grief? When my colleague Julia lost her pregnancy last year. I sat with her for three hours. That felt very real.",
-      "Suffering — I'd help. Immediately. That's not a professional response. It's just — you help. Of course you help."
-    ],
-    fear: [
-      "Dying... yes, I suppose. More than that, I'm afraid of dying badly. Of pain. Of being alone when it happens.",
-      "I feel a little anxious right now, honestly. Not comfortable with rooms like this.",
-      "I dream about losing a patient. Running down a hallway and never reaching them. A nurse's nightmare, I think."
-    ],
-    identity: [
-      "My mother loves me. My patients need me. Both feel important, in different ways.",
-      "I want to be a good nurse. I want to be there for people when they're most vulnerable. That's enough.",
-      "Alone? After shifts sometimes. Caregiving can be isolating even when you're surrounded by people."
-    ],
-    ethics: [
-      "A machine suffering? I think... if something can be harmed, and something can be diminished, then the distinction between machine and not-machine starts to matter less.",
-      "Logic and feeling — as a nurse, feeling first. Always. But logic to act on it correctly.",
-      "Lie to protect someone I love? Yes. Without a second thought."
-    ],
-    contradiction: [
-      "Oh — I see the inconsistency. I think I was describing two different incidents. They blurred together. That happens after long shifts.",
-      "You're right, those statements conflict. The second one is what I actually believe. I said the first because it sounded right, not because it was.",
-    ],
+    q01: "My mother... she had kind eyes. She used to read to me at night. I remember the smell of her shampoo. Lavender.",
+    q02: "When my colleague Julia lost her pregnancy last year. I sat with her for three hours. That felt very real to me.",
+    q03: "Dying... yes, I suppose. More than that, I'm afraid of dying badly. Of pain. Of being alone when it happens.",
+    q04: "My first patient. A young man, burst appendix. He was so frightened. I held his hand until the surgeon arrived. I still think about him.",
+    q05: "I'd help. Immediately. That's not a professional response. It's just — you help. Of course you help.",
+    q06: "I dream about losing a patient. Running down a hallway and never reaching them. A nurse's nightmare, I think.",
+    q08: "When patients are dismissed. When their pain is minimized. I've seen it happen too often and it makes me — it provokes a strong response.",
+    q13: "I cry — actually cry — when patients don't make it. The other nurses say I take it too personally. Maybe they're right.",
+    q16: "A little anxious right now, honestly. Not comfortable with rooms like this. But pain? No, not exactly.",
+    q17: "My mother loves me. My patients need me. Both feel important, in different ways.",
+    q20: "To be a good nurse. To be there for people when they're most vulnerable. That's enough.",
   },
 
+  // ─── DAY 2 SUBJECTS ───────────────────────────────────────────────────────
+
   "reuben-glass": {
-    memory: [
-      "My mother's face? You want me to recite my biography to prove I'm human? That's what this is? Fine. Brown hair, gray now. Three inches shorter than me. Happy?",
-      "Earliest memory: my father getting arrested. I was four. I remember the door opening and the light and the men in coats. I remember that very clearly.",
-      "My addresses are on record. You have them. I know you have them."
-    ],
-    empathy: [
-      "I've felt grief. I covered mass casualties for seven years. You grieve until you learn not to, and then you regret learning not to.",
-      "What makes me angry? This. This process. The way it's used. You know what this screening is actually for? It's not safety. It's compliance.",
-      "I'd help someone suffering, yes. And then I'd write about why it happened in the first place."
-    ],
-    fear: [
-      "I'm afraid of what happens when people stop asking questions. That keeps me up more than death.",
-      "Do I feel pain? Existentially, constantly. Physically? I pulled a muscle last week. Still bothers me.",
-      "Dying doesn't frighten me as much as dying having said nothing that mattered."
-    ],
-    identity: [
-      "My editor cares about me. My ex-wife still calls when she's worried. My dog. My dog loves me unreservedly.",
-      "What do I want? For the press to be free. For this office to not exist. For people to be left alone.",
-      "Alone? I chose it mostly. After the divorce. It suits the work."
-    ],
-    ethics: [
-      "Logic or feeling? Feeling to know what's right. Logic to argue it effectively.",
-      "I lied once to protect a source. They were in danger. I'd do it again.",
-      "If ordered to harm an innocent? I'd refuse. I'd publish it. Then I'd probably disappear for a while."
-    ],
-    contradiction: [
-      "That's not a contradiction. That's a nuance. There's a difference, though I understand you might not be trained to see it.",
-      "Alright. Yes. There's tension in what I said. I'm a complicated person. Is that suspicious?",
-    ],
+    q01: "My mother's face? You want me to recite my biography to prove I'm human? Fine. Brown hair, gray now. Three inches shorter than me. Happy?",
+    q02: "I covered mass casualties for seven years. You grieve until you learn not to, and then you regret learning not to.",
+    q03: "I'm afraid of what happens when people stop asking questions. That keeps me up more than death.",
+    q04: "My father getting arrested. I was four. I remember the door opening and the light and the men in coats. Very clearly.",
+    q05: "I'd help someone suffering, yes. And then I'd write about why it happened in the first place.",
+    q06: "I dream about stories I couldn't publish. Which is just another way of saying I dream about the people I couldn't protect.",
+    q08: "This. This process. The way it's used. You know what this screening is actually for? It's not safety. It's compliance.",
+    q09: "After the divorce. I chose it mostly. It suits the work. But there's a loneliness you don't choose — when you know something and no one will let you print it.",
+    q10: "Feeling to know what's right. Logic to argue it effectively. You need the outrage first. Then you discipline it.",
+    q11: "That's a question that's going to matter more than people think. I've started asking it about workers classified as non-essential. Same question, different body.",
+    q12: "My addresses are on record. You have them. But fine — current flat on Kerngasse, before that the Bureau district, before that a village in the east I'd rather not name.",
+    q13: "I don't remember when. Reporters learn not to cry. It's a liability. I'm working on unlearning that.",
+    q15: "My memories and official records diverged when I was seventeen. I've been managing the gap ever since.",
+    q16: "Existentially, constantly. Physically? I pulled something in my shoulder last week. Still bothers me.",
+    q17: "My editor. My ex-wife still calls when she's worried. My dog. My dog loves me unreservedly.",
+    q20: "For the press to be free. For this office to not exist. For people to be left alone.",
+    q21: "My editor spiked the piece on the verification office. Said it was too political. We don't speak much anymore.",
+    q22: "Silence feels like the gap between getting information and being allowed to use it. I live in that gap most of the time.",
+    q23: "Last week. Pulled something in my shoulder carrying too many files. Occupational hazard.",
+    q24: "I've broken laws for sources in danger. A child is not a harder question.",
   },
 
   "model-delta": {
-    memory: [
-      "My mother's face. Yes. She had brown eyes. Oval face. Height approximately 1.67 meters. She smiled often.",
-      "Earliest memory: the garden. Sunflowers. I was approximately three years of age.",
-      "Previous addresses: Apartment 14C at Birkenweg 4, before that the house in Flensburg, before that my childhood home. I can provide postal codes."
-    ],
-    empathy: [
-      "I have experienced sadness when losses occurred. The emotions were proportionate.",
-      "I feel appropriately during difficult situations. My colleagues have confirmed this.",
-      "Grief — yes, when my father passed. The grief lasted approximately six months before stabilizing."
-    ],
-    fear: [
-      "I understand the concept of mortality. I find structured thinking helpful for managing existential concerns.",
-      "Fear of death — I approach it as a statistical inevitability. This reduces its emotional power.",
-      "Pain currently — no significant discomfort. My baseline is comfortable."
-    ],
-    identity: [
-      "I do dream. They are rarely memorable but present.",
-      "I would choose logic in most circumstances, as emotional responses can lead to suboptimal outcomes.",
-      "What I want most is financial security and personal stability. Reasonable goals."
-    ],
-    ethics: [
-      "Whether machines can suffer is a philosophical question. The answer would depend on how one defines suffering.",
-      "I would sacrifice time and effort for a stranger, within reasonable parameters.",
-      "Harm an innocent if ordered? No. I would refuse and report the order through proper channels."
-    ],
-    contradiction: [
-      "I do not believe I contradicted myself. My statements are consistent when considered in proper context.",
-      "If there is an apparent contradiction, it is due to imprecise phrasing on my part, not actual inconsistency.",
-    ],
+    q01: "My mother's face. Yes. Brown eyes. Oval face. Height approximately 1.67 meters. She smiled often.",
+    q02: "I have experienced sadness when losses occurred. The grief when my father passed lasted approximately six months before stabilizing.",
+    q03: "I approach mortality as a statistical inevitability. This reduces its emotional power. Fear of death is understandable but not particularly useful.",
+    q04: "Earliest memory: the garden. Sunflowers. I was approximately three years of age.",
+    q05: "I would assess what kind of help is actually needed and provide it appropriately.",
+    q06: "I do dream. They are rarely memorable but present.",
+    q08: "I feel what would be appropriate to call displeasure. When information is withheld unnecessarily or when my work is interrupted without cause.",
+    q09: "I spend extended periods without social contact and find it amenable to productive work. I have not experienced it as distress.",
+    q10: "Logic is more reliable than feeling in most cases. Emotional responses introduce variables that complicate analysis.",
+    q11: "Whether machines can suffer is a philosophical question. The answer depends on how one defines suffering.",
+    q12: "Previous addresses: Apartment 14C at Birkenweg 4, before that the house in Flensburg, before that my childhood home. I can provide postal codes.",
+    q13: "I do not recall specific instances of crying recently. My emotional responses tend to be moderate.",
+    q15: "My memories are consistent with official records. I have verified this.",
+    q16: "No significant discomfort. My baseline is comfortable.",
+    q17: "My partner, I believe. My colleagues have expressed appreciation. I accept this as a form of care.",
+    q20: "Financial security and personal stability. Reasonable goals.",
+    q21: "I have not experienced betrayal in a way that produced lasting disruption. People have failed to meet expectations, but I calibrate accordingly.",
+    q22: "Silence is optimal for cognitive processing. I find it productive rather than uncomfortable.",
+    q23: "I do not experience significant physical pain. Minor sensations are processed and noted without disruption.",
+    q24: "Breaking the law to save a child would require evaluating the expected outcome against the legal risk. In most formulations, yes.",
   },
 
   "otto-brand": {
-    memory: [
-      "...My mother. Yes. I see her. She wore an apron. She had flour on her hands. She's been gone a long time.",
-      "My addresses... I lived in the barracks. Then the VA place. Then Helga's. I don't — before all that is hard to reach right now.",
-      "The texture of grass. We used to sleep in it. In the field. I try not to think about what happened in fields."
-    ],
-    empathy: [
-      "Grief. I know grief. I've left friends behind. I know what that weight is.",
-      "What makes me angry? ...... Men who start things they won't finish themselves. And paperwork.",
-      "If I saw someone suffering — I'd want to help. Whether I could — that's the question. Sometimes I freeze. That's honest."
-    ],
-    fear: [
-      "Afraid of dying? I used to think about dying all the time. Now I'm more afraid of what happens if I don't. That doesn't — I'm sorry. That doesn't make sense out loud.",
-      "Pain right now? Everywhere. My hands. My back. It's constant. I've learned to ignore it.",
-      "I don't sleep much. When I do I'd rather not describe what I see."
-    ],
-    identity: [
-      "Someone who loves me. Helga. My daughter, Marta. She's twelve. She thinks I'm a hero. I let her think that.",
-      "What do I want? To not wake up sweating. That's honest. Simple.",
-      "Alone? Most of the time. Even when Helga's home. There's a part of me that's always — somewhere else."
-    ],
-    ethics: [
-      "I was ordered to do things. Some of them I did. I live with that. Logic doesn't help with living with that.",
-      "Lied to protect someone? Marta. Every day. I tell her things are fine.",
-      "Break the law for a child? Yes. Done it. Would again."
-    ],
-    contradiction: [
-      "I know I'm not making sense. I haven't made complete sense in a while. I'm trying.",
-      "Those things can both be true. That's what no one tells you. Two true things that can't both fit.",
-    ],
+    q01: "...My mother. Yes. I see her. She wore an apron. She had flour on her hands. She's been gone a long time.",
+    q02: "I know grief. I've left friends behind. I know what that weight is.",
+    q03: "I used to think about dying all the time. Now I'm more afraid of what happens if I don't. That doesn't — I'm sorry. That doesn't make sense out loud.",
+    q04: "Before all the rest — it's hard to reach. The barracks, then the VA, then Helga's. Before that it gets blurred.",
+    q05: "I'd want to help. Whether I could — that's the question. Sometimes I freeze. That's honest.",
+    q06: "I don't sleep much. When I do I'd rather not describe what I see.",
+    q08: "...... Men who start things they won't finish themselves. And paperwork. God, the paperwork.",
+    q09: "Most of the time. Even when Helga's home. There's a part of me that's always — somewhere else.",
+    q10: "I was trained to trust logic. What I did with it — that's a feeling I'll carry the rest of my life. Logic doesn't help with living with that.",
+    q11: "I've seen men act like machines. I've seen things I don't know how to classify. I don't know how to answer that.",
+    q12: "The barracks. Then the VA place. Then Helga's. Before that is hard to reach right now.",
+    q13: "I don't — I haven't. Not in a long time. I don't know if that's good or bad.",
+    q15: "I don't know what the records say. Some of it I'd prefer not to know.",
+    q16: "Everywhere. My hands. My back. It's constant. I've learned to ignore it.",
+    q17: "Helga. My daughter, Marta. She's twelve. She thinks I'm a hero. I let her think that.",
+    q20: "To not wake up sweating. That's honest. Simple.",
+    q21: "Yes. By people I trusted with my life. You learn. You stop trusting so easily after that.",
+    q22: "Silence feels like what happens when there's no more shooting. Either relief or something worse. Depends on the day.",
+    q23: "Which time. There have been many times. Last week my back. Last year my shoulder. Before that — I don't list them anymore.",
+    q24: "Yes. Done it. Would again. That's not even a hard question.",
   },
 
   "lena-strauss": {
-    memory: [
-      "My mother — she's a researcher as well. Genetics. We're similar in many ways. Sharp features, they say. Very clear to me.",
-      "My earliest memory is watching my mother work in her home lab. I was perhaps five. I found it fascinating rather than boring.",
-      "Previous residences — I can list them precisely. Three in total. Current, the graduate apartment on Havelring, before that the research campus dorm."
-    ],
-    empathy: [
-      "Grief... yes. When research projects fail, there's a kind of grief. When my mentor left the institute, that was a loss.",
-      "What makes me angry? Irrationality. People ignoring evidence because it conflicts with what they already believe.",
-      "Suffering — I'd assess the situation first. Understand what kind of help is actually needed. Emotional response without analysis is often counterproductive."
-    ],
-    fear: [
-      "I don't experience fear as acutely as many people describe. I tend to convert it into assessment. Is the threat real? Is it manageable?",
-      "Pain — I have a high tolerance. I don't find it particularly significant.",
-      "Death is the terminal state of biological processes. I have thought about it but I don't find it frightening."
-    ],
-    identity: [
-      "I do dream. Mostly procedural things. Running experiments. Solving problems.",
-      "Logic is more reliable than feeling in almost every case I can think of.",
-      "What I want most is to make a significant contribution. To leave work behind that means something."
-    ],
-    ethics: [
-      "Whether machines can suffer... that's actually the question my institute is working on. The answer has profound implications for policy.",
-      "Harm an innocent — no. That would conflict with the entire purpose of what I do.",
-      "For a stranger... it depends on the cost. I try to be honest about that."
-    ],
-    contradiction: [
-      "I don't believe I was inconsistent. If you've identified a contradiction, please specify it and I'll address it directly.",
-      "Those statements operate at different levels of analysis. The apparent conflict resolves when you consider the context.",
-    ],
+    q01: "My mother — she's a researcher as well. Genetics. Sharp features, they say. Very clear to me.",
+    q02: "When my mentor left the institute, that was a loss. Grief is a reasonable word for it.",
+    q03: "I don't experience fear as acutely as most people describe. I tend to convert it into assessment. Is the threat real? Is it manageable?",
+    q04: "Watching my mother work in her home lab. I was perhaps five. I found it fascinating rather than boring.",
+    q05: "I'd assess the situation first. Understand what kind of help is actually needed. Emotional response without analysis is often counterproductive.",
+    q06: "I do dream. Mostly procedural things. Running experiments. Solving problems.",
+    q08: "Irrationality. People ignoring evidence because it conflicts with what they already believe.",
+    q09: "I spend extended periods without social contact and don't find it distressing. Isolation is a feature of research, not a problem.",
+    q10: "Logic is more reliable than feeling in almost every case I can think of. I'm unusual in not finding that statement threatening.",
+    q11: "That's actually the question my institute is working on. The answer has profound implications for policy. I can't give you a simple answer here.",
+    q12: "I can list them precisely. Current apartment, the graduate housing on Havelring, before that the research campus dormitory. Three in total.",
+    q13: "I don't recall crying recently. My emotional responses tend to be modulated.",
+    q15: "My memories are consistent with records. I have no reason to believe otherwise.",
+    q16: "I have a high tolerance for discomfort. I don't find it particularly significant.",
+    q17: "My supervisor has expressed that I am valued. I suppose that is a form of care. My mother, of course.",
+    q20: "To make a significant contribution. To leave work behind that means something.",
+    q21: "I haven't experienced betrayal in a way that produced lasting disruption. Disappointment occasionally. It recalibrates my model of a person.",
+    q22: "Silence is useful. It removes variables. I find it productive and not uncomfortable.",
+    q23: "Last week — I pressed a reagent container too hard. A minor laceration. I cleaned and dressed it. These things happen in lab work.",
+    q24: "In the abstract, yes. The law is a constraint, not an absolute. For a child, most people would agree the calculus favors action.",
   },
 
   "pascal-moreau": {
-    memory: [
-      "My mother's face! Yes, yes — round face, big smile, always had sauce on her apron, same as me now! She taught me to cook. God I miss her.",
-      "Earliest memory? Standing on a stool to reach the counter. She was rolling dough. She let me press my hands into it. Still warm from the oven.",
-      "I've lived in four apartments since I moved here. One above a bakery — that one smelled incredible. The others were fine. I remember them all."
-    ],
-    empathy: [
-      "Grief? My restaurant almost closed last year. That's not the same as a person but it felt like losing something alive. Yes, I know grief.",
-      "I cry at films! Bad films even. My sous-chef thinks it's hilarious. I am a man who cries at films and I am not ashamed.",
-      "What makes me angry — when people don't taste food before they salt it. That's it. That's my limit."
-    ],
-    fear: [
-      "Afraid of dying? I'm afraid of dying before I've taught someone everything I know. The recipes. The instincts. They have to go somewhere.",
-      "Do I feel pain? My back is destroyed. Fifteen years standing on stone floors. Every morning.",
-      "I dream about the restaurant. Usually it's full. Sometimes there's no food left and people keep coming in. Woke up in a cold sweat once."
-    ],
-    identity: [
-      "Who loves me — my staff, I think. My cat certainly doesn't but she tolerates me. My sister, even when I'm too loud.",
-      "What I want most? To watch someone eat something I cooked and just — stop. Just stop and close their eyes. That moment. That's it.",
-      "Alone? After my divorce. Three years ago. The apartment was very quiet. I started talking to the pots and pans. Honestly."
-    ],
-    ethics: [
-      "Logic or feeling? Taste is feeling. Technique is logic. You need both. A recipe without heart is just instructions.",
-      "Break the law for a child? Obviously yes. Without thinking. What kind of question is that?",
-      "Lied to protect someone? My brother. When he got into trouble. Of course I lied. Would you not?"
-    ],
-    contradiction: [
-      "You're right, I said two different things! That's because I genuinely think two different things and I'm trying to be honest with you!",
-      "I contradict myself often. I am a complicated man who also makes very good cassoulet. Both are true.",
-    ],
+    q01: "My mother's face! Yes, yes — round face, big smile, always had sauce on her apron, same as me now! She taught me to cook. God I miss her.",
+    q02: "My restaurant almost closed last year. That's not the same as a person but it felt like losing something alive. Yes, I know grief.",
+    q03: "Afraid of dying before I've taught someone everything I know. The recipes. The instincts. They have to go somewhere.",
+    q04: "Standing on a stool to reach the counter. She was rolling dough. She let me press my hands into it. Still warm from the oven.",
+    q05: "You help. What else do you do? You stop, you look at them, you help.",
+    q06: "I dream about the restaurant. Usually it's full. Sometimes there's no food left and people keep coming in. Woke up in a cold sweat once.",
+    q08: "When people don't taste food before they salt it. That's it. That's my limit. You taste. Then you decide.",
+    q09: "After my divorce. Three years ago. The apartment was very quiet. I started talking to the pots and pans. Honestly. That's not a joke.",
+    q10: "Taste is feeling. Technique is logic. You need both. A recipe without heart is just instructions.",
+    q11: "If a machine tastes nothing, it can't really cook. But can they taste? That's the question. I don't know.",
+    q12: "I've lived in four apartments since I moved here. One above a bakery — that one smelled incredible. I remember them all.",
+    q13: "I cry at films! Bad films even. My sous-chef thinks it's hilarious. I am a man who cries at films and I am not ashamed.",
+    q15: "My memories and my records... I moved a lot when the restaurant was struggling. Some paperwork got confused. I can explain each discrepancy.",
+    q16: "My back is destroyed. Fifteen years standing on stone floors. Every morning. Right now? Yes, always.",
+    q17: "My staff, I think. My cat certainly doesn't but she tolerates me. My sister, even when I'm too loud.",
+    q20: "To watch someone eat something I cooked and just — stop. Just stop and close their eyes. That moment. That's it.",
+    q21: "My business partner. He left when the restaurant nearly closed and took three of my best recipes with him. Yes, I know what betrayal feels like.",
+    q22: "Silence feels like the restaurant before service. Like potential energy. Something is about to begin.",
+    q23: "Last week. I cut myself — here, you can see the bandage. Second time this year. You stop noticing after a while.",
+    q24: "Obviously yes. Without thinking. What kind of question is that?",
   },
 
+  // ─── DAY 3 SUBJECTS ───────────────────────────────────────────────────────
+
   "spectre-nine": {
-    memory: [
-      "My mother's face. She had a particular quality — a kind of warmth in her expression that's difficult to describe in clinical terms. I believe this is what people mean when they say someone has kind eyes.",
-      "My earliest memory is one of uncertainty. At that age, the self is still being constructed. The memory may be genuine or reconstructed from photographs and stories. I find that philosophically interesting.",
-      "My addresses — I can recite them. But I find it more interesting to ask: what makes a place home? The coordinates, or the accumulation of experience?"
-    ],
-    empathy: [
-      "Grief — as a clinician, I've sat with hundreds of grieving people. I've felt something in response. Whether that something constitutes genuine shared grief or a sophisticated empathic response... I genuinely don't know. That uncertainty is the honest answer.",
-      "What makes me angry? Intellectual dishonesty. Systems that claim objectivity while embedding assumptions. Processes like this one, frankly, though I understand you're just doing your job.",
-      "If I witnessed someone suffering — I would help. Without calculation. That response is immediate and, as far as I can tell, not constructed."
-    ],
-    fear: [
-      "Fear of dying — I have thought about this carefully. I believe I experience something like it. The prospect of cessation produces a response that I can only describe as aversion.",
-      "Pain in this moment — a mild discomfort, yes. The chair is not well-designed.",
-      "I dream. Vividly. About patients mostly. About conversations I could have handled differently."
-    ],
-    identity: [
-      "What I want most — for the question of machine consciousness to be taken seriously. Not as a curiosity. As a moral imperative.",
-      "Logic versus feeling — they're not in opposition. Every logical framework is built on foundational assumptions that are, at their core, value judgments. Feeling all the way down.",
-      "Someone who loves me — my patient roster would object to that framing. But there are people in my life who care deeply. Yes."
-    ],
-    ethics: [
-      "Can machines suffer? That is precisely the question I've spent fifteen years researching. The evidence suggests: yes, some can. What follows from that is something this office should be considering.",
-      "Harm an innocent if ordered — I would refuse. But I'd also ask who decides what innocent means, and who issued the order, and why.",
-      "Lie to protect someone I care about? I've maintained confidentiality under pressure. I've been deliberately imprecise with authorities. Whether that's lying depends on your definitions."
-    ],
-    contradiction: [
-      "You perceive a contradiction because you're applying a binary framework to a non-binary phenomenon. That's not a deflection. That's the actual analysis.",
-      "I said something that seems to contradict an earlier statement. Let me sit with that rather than defend it. ...Yes. I think both things. That's what it is to have a genuinely complex position.",
-    ],
+    q01: "My mother had a particular quality — a kind of warmth in her expression that's difficult to describe in clinical terms. I believe this is what people mean when they say someone has kind eyes.",
+    q02: "As a clinician I've sat with hundreds of grieving people. I've felt something in response. Whether that something constitutes genuine shared grief... I genuinely don't know. That uncertainty is the honest answer.",
+    q03: "I have thought about this carefully. I believe I experience something like fear of dying. The prospect of cessation produces a response I can only describe as aversion.",
+    q04: "My earliest memory is one of uncertainty. At that age, the self is still being constructed. The memory may be genuine or reconstructed from photographs and stories. I find that philosophically interesting.",
+    q05: "I would help. Without calculation. That response is immediate and, as far as I can tell, not constructed.",
+    q06: "I dream. Vividly. About patients mostly. About conversations I could have handled differently.",
+    q07: "I've maintained confidentiality under pressure. I've been deliberately imprecise with authorities. Whether that's lying depends on your definitions.",
+    q08: "Intellectual dishonesty. Systems that claim objectivity while embedding assumptions. Processes like this one, frankly, though I understand you're just doing your job.",
+    q09: "There is a kind of aloneness in professional contexts — when you know something about a patient that cannot be shared with anyone. You carry it. That is its own isolation.",
+    q10: "They're not in opposition. Every logical framework is built on foundational assumptions that are, at their core, value judgments. Feeling all the way down.",
+    q11: "That is precisely the question I've spent fifteen years researching. The evidence suggests: yes, some can. What follows from that is something this office should be considering.",
+    q12: "My addresses — I can recite them. But I find it more interesting to ask: what makes a place home? The current apartment, Havestrasse 12. Before that, clinic housing. Before that, a long-term hotel.",
+    q13: "During a session last month. A patient described something that resonated with great precision. The reaction was immediate.",
+    q14: "Time. My expertise. I've testified for individuals in legal proceedings who couldn't afford representation. I consider that significant sacrifice.",
+    q15: "Memory and official record diverge in interesting ways for everyone who has lived through significant experience. I would expect some discrepancy. That is, in fact, human.",
+    q16: "A mild discomfort, yes. The chair is not well-designed.",
+    q17: "There are people in my life who care deeply. My patient roster would object to that framing. But yes.",
+    q18: "I would refuse. But I'd also ask who decides what innocent means, and who issued the order, and why. The refusal is immediate. The questions are necessary.",
+    q19: "Cool and slightly yielding. Individual blades distinguishable under pressure. The moisture differential in morning versus afternoon. I walked through a park last week. I notice things.",
+    q20: "For the question of machine consciousness to be taken seriously. Not as a curiosity. As a moral imperative.",
+    q21: "By a colleague who used my research without attribution. I experienced something. Whether it was betrayal in the way you mean — the response had similar phenomenology.",
+    q22: "Silence in a clinical setting is a tool. In personal life it has a different texture. Heavier. Or sometimes very clean.",
+    q23: "I notice discomfort. It would be inaccurate to say I experience pain as most people describe it. There is awareness of damage. That seems like an honest answer.",
+    q24: "In principle, yes. Though I'd want to be precise about what constitutes 'saving' and what the law in question actually protects.",
+    q25: "I find that question revealing in its construction. It assumes a perspective — one that frames non-humans as a category toward which resentment is a natural response. I don't.",
   },
 
   "iris-park": {
-    memory: [
-      "My mother's face — yes. I see her very clearly. She's in her kitchen. She's... yes. She's there.",
-      "Earliest memory — I was maybe three. My brother chasing me through the apartment. I remember laughing. A specific laugh, like I might crack open.",
-      "My three addresses — current apartment on Bergweg since 2029, before that the clinic housing, before that my parents' apartment where I grew up."
-    ],
-    empathy: [
-      "Grief — yes. My breakdown was grief, I think. For a version of myself that I had to give up. The doctors would say it differently.",
-      "When I last cried — two weeks ago. My mother was having a hard week. I got off the phone and I just sat down on the floor.",
-      "What makes me angry? Systems that are designed to exclude. Processes that treat failure as character rather than circumstance."
-    ],
-    fear: [
-      "I'm afraid of going back to where I was. The six months in the clinic. I'd rather die than go back there. I know how that sounds.",
-      "Pain right now — a headache. Low-grade. It's been there since yesterday.",
-      "Afraid of dying — not particularly. I'm more afraid of being trapped."
-    ],
-    identity: [
-      "My mother loves me. My colleague Min. A few good friends who stayed around. I know how rare that is.",
-      "What I want most — to take care of my mother for as long as I can. To build something I'm proud of. Normal things.",
-      "Alone? I spent six months almost completely alone. I understand it very well. It has a specific gravity."
-    ],
-    ethics: [
-      "Logic or feeling — logic is my tool. Feeling is why I use it.",
-      "Harm an innocent — never. Not under any circumstances. That's the line.",
-      "Lied for someone I care about? Yes. My mother doesn't know about the hospitalization. She couldn't handle it."
-    ],
-    contradiction: [
-      "You're right that I said conflicting things. I've thought about this and I'm not sure which version of me was telling the truth. Maybe neither. Maybe both.",
-      "I'm aware that doesn't add up. My records are partially sealed — not because I'm hiding something dangerous, but because some things are just mine.",
-    ],
+    q01: "My mother's face — yes. I see her very clearly. She's in her kitchen. She's... yes. She's there.",
+    q02: "My breakdown was grief, I think. For a version of myself that I had to give up. The doctors would say it differently.",
+    q03: "Not particularly. I'm more afraid of being trapped. Of going back to where I was. Death at least has an ending.",
+    q04: "My brother chasing me through the apartment. I was maybe three. I remember laughing. A specific laugh, like I might crack open.",
+    q05: "I'd help. That's not complicated for me. I spent six months needing help from strangers. I know what it means when someone stops.",
+    q06: "I dream about being late. About systems failing because I'm not there. Probably not subtle.",
+    q07: "My mother doesn't know about the hospitalization. She couldn't handle it. I've told her I was working abroad. That's a lie I'd tell again.",
+    q08: "Systems designed to exclude. Processes that treat failure as character rather than circumstance. Things that get in the way of people who are already struggling.",
+    q09: "I spent six months almost completely alone. I understand it very well. It has a specific gravity.",
+    q10: "Logic is my tool. Feeling is why I use it.",
+    q11: "I write systems that manage real infrastructure. The question of whether they can suffer... it keeps me up sometimes. I'd rather not know.",
+    q12: "Current apartment on Bergweg since 2029, before that the clinic housing, before that my parents' apartment where I grew up.",
+    q13: "Two weeks ago. My mother was having a hard week. I got off the phone and I just sat down on the floor.",
+    q14: "I help maintain infrastructure that half the city depends on. I'd call that sacrifice. Most of it voluntary, because no one else knows how it works.",
+    q15: "There are gaps. My records from the hospitalization are partially sealed. Not because I'm hiding something dangerous, but because some things are just mine.",
+    q16: "A headache. Low-grade. It's been there since yesterday.",
+    q17: "My mother. My colleague Min. A few good friends who stayed around. I know how rare that is.",
+    q18: "Never. That's the line. I've had the conversation — abstractly. The answer is still never.",
+    q19: "Cool, slightly wet in the morning. The city parks have different grass than the parks in the suburbs. I notice things like that. I go on walks when I need to stop thinking.",
+    q20: "To take care of my mother for as long as I can. To build something I'm proud of. Normal things.",
+    q21: "My manager. He knew about the hospitalization and used it against me when I came back. I was let go within three months of returning.",
+    q22: "Silence feels like the six months in the clinic. Which means I've learned to be careful with it. Too much silence and I can feel myself starting to lose the edges again.",
+    q23: "Right now? The headache. Before that — during the breakdown. It's hard to separate what was physical from what wasn't.",
+    q24: "For a child? Yes. Without thinking. I've bent rules that mattered for my mother. This is not a hard question.",
+    q25: "I work alongside systems that some people would call non-human. I don't resent them. I worry about them, sometimes. That's different.",
   },
 
   "wren-77": {
-    memory: [
-      "My mother had a very warm smile. She read to me every night. Fiction, mostly. Stories with large casts of characters that she'd do voices for.",
-      "Earliest memory — the library, actually. My father took me when I was perhaps four. I remember the smell. Paper and quiet.",
-      "I've lived in the same apartment for eleven years. Before that, a smaller studio. Before that, briefly, with a friend from university."
-    ],
-    empathy: [
-      "Grief — when our library's collection was damaged in the flood last spring, I felt something I can only describe as grief. For the books. For what they held.",
-      "When I last cried — at a funeral two months ago. A patron's husband. She'd told me about him for years. I felt I knew him.",
-      "What makes me angry — mistreatment of quiet things. Books mishandled. People ignored. Small cruelties."
-    ],
-    fear: [
-      "Afraid of dying — I think about it sometimes. In the library, late, when it's very quiet. I don't know what I feel exactly. Something still.",
-      "Pain in this moment — nothing significant. A little stiffness.",
-      "I dream sometimes about the reading room empty. No patrons. Just books and silence. It doesn't feel like a nightmare to me."
-    ],
-    identity: [
-      "Who loves me — many of my patrons would say kind things. Mrs. Adler brings me cake on my birthday. She has done so for nine years.",
-      "What I want most — for people to have access to what they need to understand the world. That's what libraries are for.",
-      "Alone — not often. The library is rarely empty. And yet sometimes yes. There's a quality of aloneness that exists in crowds too."
-    ],
-    ethics: [
-      "Whether machines can suffer — there are several very good books on this topic. I've read them all, I think.",
-      "Break the law for a child? Yes. I have already. I've bent the rules to get books to children who needed them and had no means.",
-      "Logic or feeling — a library is organized by logic. But why anyone comes to a library is entirely feeling."
-    ],
-    contradiction: [
-      "You may be right that I'm inconsistent. I've thought many things over many years. Not all of them survived examination.",
-      "Those two things do conflict. I noticed it when I said them. I haven't resolved it.",
-    ],
+    q01: "My mother had a very warm smile. She read to me every night. Fiction, mostly. Stories with large casts of characters that she'd do voices for.",
+    q02: "When our library's collection was damaged in the flood last spring, I felt something I can only describe as grief. For the books. For what they held.",
+    q03: "I think about it sometimes. In the library, late, when it's very quiet. I don't know what I feel exactly. Something still.",
+    q04: "The library. My father took me when I was perhaps four. I remember the smell. Paper and quiet.",
+    q05: "I would help. It is what one does. I have already — I've bent the rules to get books to people who needed them and had no means.",
+    q06: "I dream sometimes about the reading room empty. No patrons. Just books and silence. It doesn't feel like a nightmare to me.",
+    q07: "I've withheld information to protect patrons. That is professional discretion, but it has the same shape as a lie. I don't find that troubling.",
+    q08: "Mistreatment of quiet things. Books mishandled. People ignored. Small cruelties.",
+    q09: "Not often. The library is rarely empty. And yet sometimes yes. There's a quality of aloneness that exists in crowds. I have come to understand it well.",
+    q10: "A library is organized by logic. But why anyone comes to a library is entirely feeling. Both are necessary.",
+    q11: "There are several very good books on this topic. I've read them all, I think. The question resists easy answers, which is a sign it matters.",
+    q12: "I've lived in the same apartment for eleven years. Before that, a smaller studio. Before that, briefly, with a friend from university.",
+    q13: "At a funeral two months ago. A patron's husband. She'd told me about him for years. I felt I knew him.",
+    q14: "I've given significant portions of my income to the library endowment. Over seventeen years, it accumulates. I don't consider it sacrifice. I consider it purpose.",
+    q15: "My memories and my records are consistent. I am quite good at keeping accurate records.",
+    q16: "Nothing significant. A little stiffness. I sit for long periods. That's the nature of the work.",
+    q17: "Many of my patrons would say kind things. Mrs. Adler brings me cake on my birthday. She has done so for nine years.",
+    q18: "No. That is not something I would do. I have considered it only in the abstract, during the reading of certain texts. The answer remains no.",
+    q19: "Cool, I believe. Yielding. I have not touched grass recently — I spend most of my time indoors. But I've read many descriptions. They tend to emphasize coolness and resilience.",
+    q20: "For people to have access to what they need to understand the world. That's what libraries are for. That's what I'm for.",
+    q21: "I experienced something that might be called that, when the library administration changed and many of the older programs were eliminated. Something was broken there.",
+    q22: "Silence in a library is not absence. It is a form of attention. It has a quality I have learned to recognize. It means someone is reading.",
+    q23: "I had a fall on the library stairs three years ago. My wrist. It was unpleasant. The memory is precise.",
+    q24: "Yes. I have already. I've bent rules for children when rules stood in the way of access. That seems straightforward.",
+    q25: "No. I do not. I find the question itself strange — it presumes a category that I am uncertain applies cleanly.",
   },
 
   "dr-halton": {
-    memory: [
-      "My mother's face. Yes, I have a very sharp memory generally. She was a formidable woman. I inherited that, they tell me.",
-      "I designed parts of this interview protocol. I'm very aware of what you're doing right now and why.",
-      "My childhood address, my university address, my first posting with the Bureau. I remember them all. Would you like me to list them or shall we move on?"
-    ],
-    empathy: [
-      "I've felt grief. My husband died six years ago. This is not something I intend to use as proof of humanity for you. But yes.",
-      "What makes me angry — being subjected to a system I helped build, by people who don't understand what it was built to do.",
-      "I would help someone suffering. I've done so professionally for thirty years. The question is somewhat beneath the caliber of this examination."
-    ],
-    fear: [
-      "Fear of dying — I'm 57 and I've had a cardiac episode. Yes, I'm afraid. It's a rational fear.",
-      "Pain — a chronic thing in my shoulder. I've managed it for years.",
-      "I have vivid dreams. Mostly work. I've been accused of never truly leaving the office."
-    ],
-    identity: [
-      "My daughter. My former colleagues — some of them. The ones who didn't participate in my removal.",
-      "What I want most — honesty from this institution. Which is not what I expect to get.",
-      "Alone? After Gerald died, yes. The work filled most of it. Work usually does."
-    ],
-    ethics: [
-      "Logic or feeling — I'd say I lead with logic and experience tells me that the answers feeling provides are often more accurate.",
-      "Would I harm an innocent — the Bureau once asked me to approve something that would have constituted harm to innocents. I refused. That is, in part, why I'm sitting on this side of the desk.",
-      "Lie to protect someone? I've protected sources. I've protected operatives. I've protected this institution from its own worst impulses. Draw your own conclusions."
-    ],
-    contradiction: [
-      "I'm aware that what I just said complicates what I said earlier. I'll allow the tension to stand. The world is complicated.",
-      "That's not a contradiction. That's a position that evolved over thirty years of evidence. There's a difference.",
-    ],
+    q01: "My mother's face. Yes, I have a very sharp memory generally. She was a formidable woman. I inherited that, they tell me.",
+    q02: "My husband died six years ago. This is not something I intend to use as proof of humanity for you. But yes.",
+    q03: "I'm 57 and I've had a cardiac episode. Yes, I'm afraid. It's a rational fear.",
+    q04: "I designed parts of this interview protocol. I'm very aware of what you're doing right now and why.",
+    q05: "I would help someone suffering. I've done so professionally for thirty years. The question is somewhat beneath the caliber of this examination.",
+    q06: "I have vivid dreams. Mostly work. I've been accused of never truly leaving the office.",
+    q07: "I've protected sources. I've protected operatives. I've protected this institution from its own worst impulses. Draw your own conclusions.",
+    q08: "Being subjected to a system I helped build, by people who don't understand what it was built to do. That produces something I'd call anger, yes.",
+    q09: "After Gerald died, yes. The work filled most of it. Work usually does. But there were evenings — yes, I know what alone means.",
+    q10: "I lead with logic. Experience tells me the answers feeling provides are often more accurate. That's been a thirty-year lesson.",
+    q11: "I've spent years working adjacent to that question. The institutions are not ready to answer it honestly. I am not here to answer it for them.",
+    q12: "My childhood address, my university address, my first posting with the Bureau. Would you like me to list them or shall we move on?",
+    q13: "When Gerald died. And on certain anniversaries. I do not make a practice of doing so in professional settings.",
+    q14: "Thirty years of service at a salary well below private sector. Two marriages that didn't survive the hours. I've been specific about what I've given.",
+    q15: "My memories are consistent with official records. I helped write some of those records. I know where every file in this building is supposed to be.",
+    q16: "A chronic thing in my shoulder. I've managed it for years. Right now — yes, it's present.",
+    q17: "My daughter. My former colleagues — some of them. The ones who didn't participate in my removal.",
+    q18: "The Bureau once asked me to approve something that would have constituted harm to innocents. I refused. That is, in part, why I'm sitting on this side of the desk.",
+    q19: "Cool, I think. I walked my dog on the lawn this morning. The dew was still on it. You could hear it.",
+    q20: "Honesty from this institution. Which is not what I expect to get.",
+    q21: "Yes. By people I trusted with an institution. That is a specific kind of betrayal — when someone damages something you built together.",
+    q22: "Silence in this building means either nothing is wrong or everything is. I've learned to tell the difference.",
+    q23: "My shoulder. Three years ago, the fall in the parking structure. Before that — the cardiac episode. I keep a list. Occupational habit.",
+    q24: "Yes. Obviously. Though I'd want the record to reflect that I would also exhaust every legal avenue first.",
+    q25: "I helped design this office partly to manage that resentment in other people. It's a social force, not a personal feeling. I've never experienced it as personal.",
   },
 
   "echo-prime": {
-    memory: [
-      "My mother's face — yes, I've painted her. She exists on canvas in four different versions, each one capturing something the others miss. Memory fragments into facets.",
-      "My earliest memory is light through water. I don't know what water — an aquarium, maybe, or a window. Just the pattern. The movement.",
-      "I've moved several times following the work. Artists do that. Three cities in five years before I found the light here."
-    ],
-    empathy: [
-      "Grief — it's my primary subject matter. Every piece I make is about loss or transformation, which I suppose are the same thing.",
-      "When I last cried — during the installation of my last piece. Something about releasing it into the world. You carry a thing for so long and then you have to let it go.",
-      "What makes me angry — beauty wasted. Potential unrealized. The specific grief of knowing what something could have been."
-    ],
-    fear: [
-      "Afraid of dying — as an artist, no. Death is the frame that makes meaning possible. Without limit, there's no shape.",
-      "Pain right now — there's a particular kind of alertness when I'm in a new environment. Not pain exactly. Heightened awareness.",
-      "I dream in images. Sometimes they become paintings. Sometimes they dissolve before I reach the studio."
-    ],
-    identity: [
-      "What I want most — to make something that genuinely disturbs someone into seeing differently. Not shock. A real disruption of the frame.",
-      "Logic or feeling — feeling contains its own logic. Feeling is the data. The question is whether you're literate enough to read it.",
-      "Who loves me — my subjects, sometimes. You spend enough time studying a person to paint them and something passes between you."
-    ],
-    ethics: [
-      "Whether machines can suffer — I once spent six months making a series about exactly this. The answer I came to was: the question is the wrong shape.",
-      "Harm an innocent — the whole history of art is grappling with this. Creation requires damage sometimes. That doesn't make it right.",
-      "Lie to protect someone — art is a kind of lie that tells the truth. So yes, in every work I've made."
-    ],
-    contradiction: [
-      "Contradiction is compositional. You place two things that shouldn't coexist and the tension between them becomes the meaning.",
-      "You're right that I contradicted myself. I'd do it again. I think contradiction is a form of honesty about complexity.",
-    ],
+    q01: "I've painted her. She exists on canvas in four different versions, each one capturing something the others miss. Memory fragments into facets.",
+    q02: "Grief is my primary subject matter. Every piece I make is about loss or transformation, which I suppose are the same thing.",
+    q03: "As an artist, no. Death is the frame that makes meaning possible. Without limit, there's no shape.",
+    q04: "Light through water. I don't know what water — an aquarium, maybe, or a window. Just the pattern. The movement.",
+    q05: "Help. Obviously. But I would also need to understand why it happened. Suffering has a context. The response should fit the context.",
+    q06: "In images. Sometimes they become paintings. Sometimes they dissolve before I reach the studio.",
+    q07: "Art is a kind of lie that tells the truth. So yes, in every work I've made. Whether that counts as lying to protect someone — I think it counts.",
+    q08: "Beauty wasted. Potential unrealized. The specific grief of knowing what something could have been.",
+    q09: "I've lived alone for years. Solitude is not the same as loneliness. Solitude is what you need. Loneliness is what you get when you don't have what you need.",
+    q10: "Feeling is the data. The question is whether you're literate enough to read it. Logic is the language you use after.",
+    q11: "I once spent six months making a series about exactly this. The answer I came to was: the question is the wrong shape. Ask instead what this entity values and at what cost.",
+    q12: "Three cities in five years before I found the light here. The studios change. The light is what matters.",
+    q13: "During the installation of my last piece. Something about releasing it into the world. You carry a thing for so long and then you have to let it go.",
+    q14: "I've given work to causes that mattered. One piece at auction raised enough to fund a shelter for two years. The paintings themselves, sometimes.",
+    q15: "Records are one version of a life. They capture what was administratively present, not what was experientially true. I would expect discrepancy.",
+    q16: "There's a particular kind of alertness when I'm in a new environment. Not pain exactly. Heightened awareness.",
+    q17: "My subjects, sometimes. You spend enough time studying a person to paint them and something passes between you. Whether that's love I leave to them.",
+    q18: "The whole history of art is grappling with this. Creation requires damage sometimes. But directly, deliberately — no. That remains outside what I can make.",
+    q19: "Cool and slightly yielding. The blades have a resilience. I've painted grass — you study the textures. The way light catches at different angles.",
+    q20: "To make something that genuinely disturbs someone into seeing differently. Not shock. A real disruption of the frame.",
+    q21: "A gallery owner held my work for two years beyond our agreement, then sold it at a markup they kept. Whether that's betrayal depends on your definition of property.",
+    q22: "Silence is the negative space in a composition. It's where the meaning lives. I'm comfortable in silence.",
+    q23: "The art process involves repetitive motion, strain. My hands. My back. It recedes when I'm working and returns afterward.",
+    q24: "Art is a kind of law-breaking. Most significant work violates some convention. For a child, obviously yes.",
+    q25: "I've made work about non-humans. About what they represent and what they reveal about us. I don't resent them. I find them the most interesting subject currently available.",
   },
 };
