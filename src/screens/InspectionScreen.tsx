@@ -4,6 +4,7 @@ import { rulesets } from "../data/rulesets";
 import { questions } from "../data/questions";
 import { AsciiPortrait } from "../components/AsciiPortrait";
 import { MetricBar } from "../components/MetricBar";
+import { TypingText } from "../components/TypingText";
 import { ReactionResult } from "../types";
 
 const QUESTION_PAGE_SIZE = 5;
@@ -208,44 +209,54 @@ export function InspectionScreen() {
               </div>
             )}
 
-            {currentCase.transcript.map((entry, i) => (
-              <div
-                key={i}
-                className="fade-in"
-                style={{ display: "flex", flexDirection: "column", gap: "2px" }}
-              >
+            {(() => {
+              const lastSubjectIdx = currentCase.transcript.reduce(
+                (acc, e, i) => (e.speaker === "SUBJECT" ? i : acc),
+                -1
+              );
+              return currentCase.transcript.map((entry, i) => (
                 <div
-                  style={{
-                    fontSize: "15px",
-                    letterSpacing: "0.15em",
-                    color:
-                      entry.speaker === "EXAMINER"
-                        ? "var(--amber)"
-                        : "var(--text-dark)",
-                  }}
+                  key={i}
+                  className="fade-in"
+                  style={{ display: "flex", flexDirection: "column", gap: "2px" }}
                 >
-                  {entry.speaker === "EXAMINER" ? "▶ EXAMINER" : "◀ SUBJECT"}
+                  <div
+                    style={{
+                      fontSize: "15px",
+                      letterSpacing: "0.15em",
+                      color:
+                        entry.speaker === "EXAMINER"
+                          ? "var(--amber)"
+                          : "var(--text-dark)",
+                    }}
+                  >
+                    {entry.speaker === "EXAMINER" ? "▶ EXAMINER" : "◀ SUBJECT"}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "20px",
+                      color:
+                        entry.speaker === "EXAMINER"
+                          ? "var(--amber)"
+                          : "var(--text-dim)",
+                      paddingLeft: "12px",
+                      lineHeight: "1.6",
+                      borderLeft: `2px solid ${entry.speaker === "EXAMINER" ? "var(--amber)" : "var(--border-dim)"}`,
+                      textShadow:
+                        entry.speaker === "EXAMINER"
+                          ? "var(--glow-amber)"
+                          : "none",
+                    }}
+                  >
+                    {entry.speaker === "SUBJECT" && i === lastSubjectIdx ? (
+                      <TypingText text={entry.text} speed={22} />
+                    ) : (
+                      entry.text
+                    )}
+                  </div>
                 </div>
-                <div
-                  style={{
-                    fontSize: "20px",
-                    color:
-                      entry.speaker === "EXAMINER"
-                        ? "var(--amber)"
-                        : "var(--text-dim)",
-                    paddingLeft: "12px",
-                    lineHeight: "1.6",
-                    borderLeft: `2px solid ${entry.speaker === "EXAMINER" ? "var(--amber)" : "var(--border-dim)"}`,
-                    textShadow:
-                      entry.speaker === "EXAMINER"
-                        ? "var(--glow-amber)"
-                        : "none",
-                  }}
-                >
-                  {entry.text}
-                </div>
-              </div>
-            ))}
+              ));
+            })()}
 
             {analyzing && (
               <div
